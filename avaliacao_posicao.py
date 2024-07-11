@@ -21,9 +21,9 @@ print("daddos de aceleraççao diferentes de zero: \n")
 print(dadospivoted2[dadospivoted2!=0].dropna())
 
 #criação de um pivotado com todos os sensores de gases para ver se houve alguma captação de dados
-dadospivoted3 = dados.pivot_table(values=["alc", "tol", "NH4", "ace", "co", "eco2", "co2"], index="time")
-print("dados de gases, se houverem \n")
-print(dadospivoted3[dadospivoted3!=np.nan])
+gases = ("alc","tol","NH4","ace","co","eco2", "co2")
+for gas in gases:
+    print(dados)
 
 #criação de um pivotado apenas com o valoe de eco2
 dadospivoted4 = dados.pivot_table(values=["eco2"], index="time")
