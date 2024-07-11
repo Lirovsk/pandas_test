@@ -21,11 +21,19 @@ print("daddos de aceleraççao diferentes de zero: \n")
 print(dadospivoted2[dadospivoted2!=0].dropna())
 
 #criação de um pivotado com todos os sensores de gases para ver se houve alguma captação de dados
-gases = ("alc","tol","NH4","ace","co","eco2", "co2")
+gases = ("alc","tol","NH4","ace","co", "co2")
 for gas in gases:
-    print(dados)
+    print("dados de ", gas, " \n")
+    dadosfor = dados.pivot_table(values=[gas], index="time")
+    print(dadosfor[dadosfor!=np.nan].dropna())
 
 #criação de um pivotado apenas com o valoe de eco2
 dadospivoted4 = dados.pivot_table(values=["eco2"], index="time")
 print("dados de eco2 \n")
 print(dadospivoted4[dadospivoted4!=0].dropna())
+
+#Criação de plots para os dados dos gases
+dadospivoted5 = dados.pivot_table(values=gases, index="time")
+dadospivoted5.plot()
+dadospivoted5.plot.area(figsize=(20,6), subplots=True, stacked=False)
+plt.show()
