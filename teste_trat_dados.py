@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #Leitura e exibição dos dados crus do cartão ordenados pela ordem de leitura
-dados = pd.read_json("D:\ hello . txt", lines=True)
+dados = pd.read_json("C:\\Users\\Arauj\\OneDrive\\Documentos\\pasta com os dados do sat\\hello . txt" , lines=True)
 print(dados.head())
 
 #Criação e exibição de uma tabela pivot com os dados de temperatura, pressão, aceleração X e aceleração Y
