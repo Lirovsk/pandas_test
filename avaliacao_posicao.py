@@ -2,9 +2,13 @@ import json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from io import StringIO, BytesIO
 
+
+with open("C:/Users/Arauj/Documents/Vscode/pandas_test/source_files/hello.jsonl", "r") as f:
+    data = f.read()
 #Leitura e exibição dos dados crus do cartão ordenados pela ordem de leitura
-dados = pd.read_json("C:\\Users\\Arauj\\OneDrive\\Documentos\\pasta com os dados do sat\\hello . txt" , lines=True)
+dados = pd.read_json(BytesIO(data.encode()), lines=True, engine="pyarrow")
 print(dados.head())
 
 #criação de um pivotado de lat e longitude.
