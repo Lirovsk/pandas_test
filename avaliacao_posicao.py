@@ -5,11 +5,13 @@ import matplotlib.pyplot as plt
 from io import StringIO, BytesIO
 
 
-with open("C:/Users/Arauj/Documents/Vscode/pandas_test/source_files/hello.jsonl", "r") as f:
+with open(".\\source_files\\hello.txt", "r") as f:
     data = f.read()
 #Leitura e exibição dos dados crus do cartão ordenados pela ordem de leitura
-dados = pd.read_json(BytesIO(data.encode()), lines=True, engine="pyarrow")
-print(dados.head())
+#dados = pd.read_json(BytesIO(data.encode()), lines=True, engine="pyarrow")
+#print(dados.head())
+
+dados = pd.read_json("C:\\Users\\Arauj\\Documents\\Vscode\\pandas_test\\source_files\\hello.txt", lines=True)
 
 #criação de um pivotado de lat e longitude.
 dadospivoted1 = dados.pivot_table(values=["lat", "long"], index="time")
